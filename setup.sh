@@ -2,6 +2,7 @@ sudo yum install epel-release -y
 sudo yum install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
+sudo yum wget -y
 sudo yum install redis -y
 sudo systemctl start redis.service
 sudo systemctl enable redis
@@ -17,4 +18,11 @@ cd /usr/local/bin && wget https://raw.githubusercontent.com/Zakirzhan/myhost/mas
 chmod +x /usr/local/bin/myhost
 sudo yum install git -y
 sudo chmod -R 755 /var/www
+service redis stop
+cd /etc/ && rm -rf redis.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/redis.conf'
+service redis start
+service php-fpm stop && service nginx stop
+cd /etc/php-fpm.d/ && rm -rf www.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/www.conf'
+sudo systemctl start php-fpm
+sudo systemctl restart nginx
 echo "THAT's ALL! THANK YOU!"
