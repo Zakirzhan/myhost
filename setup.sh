@@ -6,10 +6,10 @@ sudo yum wget -y
 sudo yum install redis -y
 sudo systemctl start redis.service
 sudo systemctl enable redis
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
+yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y
 yum install yum-utils -y
 yum-config-manager --enable remi-php72
-yum install php php-fpm php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-pear php-devel -y
+yum install php php-fpm php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-pear php-devel php-redis php-mbstring -y
 pecl install igbinary igbinary-devel redis -y
 sudo yum install nano -y
 mkdir /etc/nginx/sites-available
@@ -25,4 +25,21 @@ service php-fpm stop && service nginx stop
 cd /etc/php-fpm.d/ && rm -rf www.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/www.conf'
 sudo systemctl start php-fpm
 sudo systemctl restart nginx
+my_ip=$(ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
+
+### create virtual host rules file
+if ! echo "
+	server {
+	    listen 80;
+	    server_name $my_ip;
+	    return 404;
+	}
+" > /etc/nginx/conf.d/default.conf
+then
+	echo -e $"There is an ERROR creating $my_ip file"
+	exit;
+else
+	echo -e $"\nNew de Host Created\n"
+fi
+
 echo "СЕРВЕР УСПЕШНО НАСТРОЕН!!! :D БЛАГОДАРЮ! sss"
