@@ -17,6 +17,8 @@ mkdir /etc/nginx/sites-enabled
 cd /usr/local/bin && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/myhost
 chmod +x /usr/local/bin/myhost
 sudo yum install git -y
+git config --global user.email "zako1996@mail.ru"
+git config --global user.name "zakirzhan"
 sudo chmod -R 755 /var/www
 service redis stop
 cd /etc/ && rm -rf redis.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/redis.conf'
