@@ -25,4 +25,4 @@ service php-fpm stop && service nginx stop
 cd /etc/php-fpm.d/ && rm -rf www.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/www.conf'
 sudo systemctl start php-fpm
 sudo systemctl restart nginx
-echo "СЕРВЕР УСПЕШНО НАСТРОЕН!!! :D БЛАГОДАРЮ!"
+echo "СЕРВЕР УСПЕШНО НАСТРОЕН!!! :D БЛАГОДАРЮ! sss"
