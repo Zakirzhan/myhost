@@ -9,7 +9,7 @@ sudo systemctl enable redis
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
 yum install yum-utils -y
 yum-config-manager --enable remi-php72
-yum install php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-pear php-devel -y
+yum install php php-fpm php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-pear php-devel -y
 pecl install igbinary igbinary-devel redis -y
 sudo yum install nano -y
 mkdir /etc/nginx/sites-available
