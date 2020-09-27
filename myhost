@@ -53,10 +53,32 @@ if [ "$action" == 'create' ]
 
 		### check if directory exists or not
 		if ! [ -d $rootDir ]; then
+
+
+			echo -e $"Clone git repo ? (y/n)"
+			read clonegit
+
+		
 			### create the directory
 			mkdir $rootDir
 			### give permission to root dir
 			chmod 755 $rootDir
+
+			if [ "$clonegit" == 'y' -o "$clonegit" == 'Y' ]; then
+				### Delete the directory
+				echo -e $"Send url of repo (for example https://github.com/User/Repository.git)"
+				read gitrepourl
+				githuburl="https://github.com/"
+				githuburl2="${gitrepourl/$githuburl}"    
+	
+				git clone "https://zakirzhan:zako1919@github.com/$githuburl2" $rootDir
+
+				echo -e $"git repo is successfully cloned"
+			else
+				echo -e $"No info from git"
+			fi
+			
+
 			### write test file in the new domain dir
 			if ! echo "<?php echo phpinfo(); ?>" > $rootDir/phpinfo.php
 			then
@@ -66,6 +88,8 @@ if [ "$action" == 'create' ]
 				echo $"Added content to $rootDir/phpinfo.php"
 			fi
 		fi
+
+			
 
 		### create virtual host rules file
 		if ! echo "
