@@ -14,7 +14,7 @@ pecl install igbinary igbinary-devel redis -y
 sudo yum install nano -y
 mkdir /etc/nginx/sites-available
 mkdir /etc/nginx/sites-enabled
-cd /usr/local/bin && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/myhost
+cd /usr/local/bin && wget http://cdn.downloadmaster.cc/files/myhost
 chmod +x /usr/local/bin/myhost
 sudo yum install git -y
 git config --global user.email "zako1996@mail.ru"
