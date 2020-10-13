@@ -21,11 +21,11 @@ git config --global user.email "zako1996@mail.ru"
 git config --global user.name "zakirzhan"
 sudo chmod -R 755 /var/www
 service redis stop
-cd /etc/ && rm -rf redis.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/redis.conf'
+cd /etc/ && rm -rf redis.conf && wget 'http://cdn.downloadmaster.cc/files/redis.conf'
 service redis start
 service php-fpm stop && service nginx stop
 cd /etc/nginx/ && rm -rf nginx.conf && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/nginx.conf
-cd /etc/php-fpm.d/ && rm -rf www.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/www.conf'
+cd /etc/php-fpm.d/ && rm -rf www.conf && wget 'http://cdn.downloadmaster.cc/files/www.conf'
 sudo systemctl start php-fpm
 sudo systemctl restart nginx
 my_ip=$(ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
