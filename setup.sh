@@ -24,7 +24,7 @@ service redis stop
 cd /etc/ && rm -rf redis.conf && wget 'http://cdn.downloadmaster.cc/files/redis.conf'
 service redis start
 service php-fpm stop && service nginx stop
-cd /etc/nginx/ && rm -rf nginx.conf && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/nginx.conf
+cd /etc/nginx/ && rm -rf nginx.conf && wget http://cdn.downloadmaster.cc/files/nginx.conf
 cd /etc/php-fpm.d/ && rm -rf www.conf && wget 'http://cdn.downloadmaster.cc/files/www.conf'
 sudo systemctl start php-fpm
 sudo systemctl restart nginx
