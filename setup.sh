@@ -21,7 +21,7 @@ git config --global user.email "zako1996@mail.ru"
 git config --global user.name "zakirzhan"
 sudo chmod -R 755 /var/www
 service redis stop
-cd /etc/ && rm -rf redis.conf && wget 'http://cdn.downloadmaster.cc/files/redis.conf'
+cd /etc/ && rm -rf redis.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/redis.conf?token=ADY5HYG5J5X2ICRBQMPP5ULAF5XZW' && mv redis.conf?token=ADY5HYG5J5X2ICRBQMPP5ULAF5XZW redis.conf
 service redis start
 service php-fpm stop && service nginx stop
 cd /etc/nginx/ && rm -rf nginx.conf && wget http://cdn.downloadmaster.cc/files/nginx.conf
