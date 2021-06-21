@@ -14,18 +14,18 @@ pecl install igbinary igbinary-devel redis -y
 sudo yum install nano -y
 mkdir /etc/nginx/sites-available
 mkdir /etc/nginx/sites-enabled
-cd /usr/local/bin && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/myhost?token=ADY5HYHXRE6BCXGKNOESKG3AQVUWE && mv myhost?token=ADY5HYHXRE6BCXGKNOESKG3AQVUWE myhost
+cd /usr/local/bin && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/myhost
 chmod +x /usr/local/bin/myhost
 sudo yum install git -y
 git config --global user.email "zako1996@mail.ru"
 git config --global user.name "zakirzhan"
 sudo chmod -R 755 /var/www
 service redis stop
-cd /etc/ && rm -rf redis.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/redis.conf?token=ADY5HYD3ZHXQDKSJEEE2QT3AQVUZU' && mv redis.conf?token=ADY5HYD3ZHXQDKSJEEE2QT3AQVUZU redis.conf
+cd /etc/ && rm -rf redis.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/redis.conf'
 service redis start
 service php-fpm stop && service nginx stop
-cd /etc/nginx/ && rm -rf nginx.conf && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/nginx.conf?token=ADY5HYFYSTVJPZLITF45IX3AQVU3O && mv nginx.conf?token=ADY5HYFYSTVJPZLITF45IX3AQVU3O nginx.conf 
-cd /etc/php-fpm.d/ && rm -rf www.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/www.conf?token=ADY5HYHKWTDUJCPG5HOIJBLAQVU5A' && mv www.conf?token=ADY5HYHKWTDUJCPG5HOIJBLAQVU5A www.conf
+cd /etc/nginx/ && rm -rf nginx.conf && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/nginx.conf
+cd /etc/php-fpm.d/ && rm -rf www.conf && wget 'https://raw.githubusercontent.com/Zakirzhan/myhost/master/www.conf' 
 sudo systemctl start php-fpm
 sudo systemctl restart nginx
 my_ip=$(ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
