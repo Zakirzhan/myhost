@@ -19,7 +19,7 @@ sudo yum install -y yum-utils
 sudo yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
-sudo yum install docker-ce-20.10 docker-ce-cli-20.10 containerd.io -y
+sudo yum install docker-ce-20.10.9 docker-ce-cli-20.10.9 containerd.io -y
 sudo systemctl start docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
