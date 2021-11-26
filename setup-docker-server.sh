@@ -9,10 +9,16 @@ cd /usr/local/bin && wget https://raw.githubusercontent.com/Zakirzhan/myhost/mas
 chmod +x /usr/local/bin/myhost
 git config --global user.email "zako1996@mail.ru"
 git config --global user.name "zakirzhan"
-sudo chmod -R 755 /var/www
+sudo mkdir /var/www && chmod -R 755 /var/www
 service nginx stop
 cd /etc/nginx/ && rm -rf nginx.conf && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/nginx.conf
 sudo systemctl restart nginx
+sudo yum install -y yum-utils
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce-20.10 docker-ce-cli-20.10 containerd.io -y
+sudo systemctl start docker
 my_ip=$(ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
 ### create virtual host rules file
 if ! echo "
