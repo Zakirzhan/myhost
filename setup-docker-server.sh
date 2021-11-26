@@ -12,6 +12,7 @@ git config --global user.name "zakirzhan"
 sudo mkdir /var/www && chmod -R 755 /var/www
 service nginx stop
 mkdir '/etc/nginx/sites-enabled/' && mkdir '/etc/nginx/sites-available/'
+echo 1 > /etc/nginx/counter.txt
 cd /etc/nginx/ && rm -rf nginx.conf && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/nginx.conf
 mkdir /etc/nginx/sites-available/ && 
 sudo systemctl restart nginx
