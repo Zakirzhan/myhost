@@ -144,6 +144,7 @@ if [ "$action" == 'create' ]
 
 		### show the finished message
 		cd $rootDir && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/docker-compose.yml && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/Dockerfile && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/laravel.ini &&  wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/docker-entrypoint.sh && https://raw.githubusercontent.com/Zakirzhan/myhost/master/redis.conf && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/laravel.ini
+		cd $rootDir && sed -i -e 's/{webdomainname}/${domain//./}/g' docker-compose.yml
 		mkdir $rootDir/php && cd $rootDir/php && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/local.ini
 		mkdir $rootDir/mysql && cd $rootDir/mysql && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/my.cnf
 		
