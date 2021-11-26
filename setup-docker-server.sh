@@ -5,8 +5,8 @@ sudo systemctl enable nginx
 sudo yum wget -y
 sudo yum install git -y
 sudo yum install nano -y
-cd /usr/local/bin && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/myhost
-chmod +x /usr/local/bin/myhost
+cd /usr/local/bin && wget https://raw.githubusercontent.com/Zakirzhan/myhost/master/newdocker
+chmod +x /usr/local/bin/newdocker
 git config --global user.email "zako1996@mail.ru"
 git config --global user.name "zakirzhan"
 sudo mkdir /var/www && chmod -R 755 /var/www
