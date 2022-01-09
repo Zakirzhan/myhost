@@ -71,7 +71,7 @@ if [ "$action" == 'create' ]
 				githuburl="https://github.com/"
 				githuburl2="${gitrepourl/$githuburl}"    
 	
-				git clone "https://zakirzhan:zako1919@github.com/$githuburl2" $rootDir
+				git clone "https://zakirzhan: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@github.com/$githuburl2" $rootDir
 				chmod -R 777 $rootDir/searches.txt
 				echo -e $"git repo is successfully cloned"
 			else
